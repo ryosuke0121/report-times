@@ -12,12 +12,11 @@ body {
     overflow: hidden;
 }
 
-/* --- ↓↓↓ ここのURLを修正しました！ ↓↓↓ --- */
-/* 7セグメントフォント「DSEG7」を正しいCDNのURLから読み込みます */
+/* --- ↓↓↓ このURLが、ご提示いただいたリンク先にある正しいファイルパスです ↓↓↓ --- */
 @font-face {
   font-family: 'DSEG7';
   /* 太字で見やすいBoldバージョンを指定 */
-  src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/DSEG7-Classic-Bold.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG14-Classic/DSEG14Classic-Bold.woff') format('woff2');
 }
 
 
@@ -36,14 +35,10 @@ body {
 }
 
 #timer {
-    /* フォントを究極のデジタルフォント「DSEG7」に変更 */
     font-family: 'DSEG7', monospace;
-    font-size: clamp(48px, 15vw, 220px); /* フォントに合わせてサイズを再調整 */
-    letter-spacing: 0.05em; /* 文字間を調整して見やすく */
-    
-    /* 7セグフォントは影を弱めにしないと隙間が潰れるため調整 */
+    font-size: clamp(48px, 15vw, 220px);
+    letter-spacing: 0.05em;
     text-shadow: 0 0 6px rgba(255, 0, 0, 0.9), 0 0 12px rgba(255, 0, 0, 0.5);
-    
     animation: blink 1.5s infinite alternate;
     white-space: nowrap;
 }
@@ -59,8 +54,7 @@ body {
 
 #centiseconds {
     font-size: 0.8em;
-    color: #dd0000; /* 少しだけ暗い赤 */
-    /* 影をさらに弱くして、メインの数字との差を出す */
+    color: #dd0000;
     text-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
 }
 
