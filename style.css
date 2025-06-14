@@ -1,0 +1,68 @@
+body {
+    background-color: #000000;
+    color: #ff0000;
+    font-family: 'Orbitron', sans-serif; /* デジタル風フォントを指定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    overflow: hidden; /* はみ出した要素を隠す */
+}
+
+.container {
+    /* コンテナの最大幅を画面の95%に制限 */
+    width: 95%;
+    margin: 0 auto;
+}
+
+#title {
+    /* 最小24px, 推奨は画面幅の5%, 最大でも60pxに制限 */
+    font-size: clamp(24px, 5vw, 60px);
+    margin-bottom: 20px;
+    font-weight: normal;
+    /* 発光を抑えて視認性アップ */
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+    white-space: nowrap; /* 文字が折り返さないようにする */
+}
+
+#timer {
+    /* 最小48px, 推奨は画面幅の12%, 最大でも180pxに制限 */
+    font-size: clamp(48px, 12vw, 180px);
+    font-weight: 900;
+    letter-spacing: clamp(1px, 0.5vw, 5px); /* 文字間隔も画面サイズに連動 */
+    /* 発光を抑えて輪郭をハッキリさせる */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 18px rgba(255, 0, 0, 0.5);
+    animation: blink 1.5s infinite alternate;
+    white-space: nowrap; /* 文字が折り返さないようにする */
+}
+
+/* 点滅アニメーションの定義 */
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.7;
+    }
+}
+
+/* 1/100秒部分のスタイル */
+#centiseconds {
+    font-size: 0.8em; /* 時間・分・秒より少しだけ小さくする */
+    color: #cc0000; /* 少しだけ暗い赤にして差別化 */
+}
+
+
+#message {
+    /* 最小40px, 推奨は画面幅の8%, 最大でも120pxに制限 */
+    font-size: clamp(40px, 8vw, 120px);
+    font-weight: bold;
+    color: #00ff00; /* 終了メッセージは緑色に */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+.hidden {
+    display: none;
+}
