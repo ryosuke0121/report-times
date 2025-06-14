@@ -1,65 +1,74 @@
 body {
     background-color: #000000;
     color: #ff0000;
-    font-family: 'Orbitron', sans-serif; /* デジタル風フォントを指定 */
+    /* 見出しはOrbitronを維持 */
+    font-family: 'Orbitron', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     text-align: center;
-    overflow: hidden; /* はみ出した要素を隠す */
+    overflow: hidden;
 }
 
+/* --- ↓↓↓ ここのURLを修正しました！ ↓↓↓ --- */
+/* 7セグメントフォント「DSEG7」を正しいCDNのURLから読み込みます */
+@font-face {
+  font-family: 'DSEG7';
+  /* 太字で見やすいBoldバージョンを指定 */
+  src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/DSEG7-Classic-Bold.woff2') format('woff2');
+}
+
+
 .container {
-    /* コンテナの最大幅を画面の95%に制限 */
     width: 95%;
     margin: 0 auto;
 }
 
 #title {
-    /* 最小24px, 推奨は画面幅の5%, 最大でも60pxに制限 */
     font-size: clamp(24px, 5vw, 60px);
     margin-bottom: 20px;
     font-weight: normal;
-    /* 発光を抑えて視認性アップ */
     text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
-    white-space: nowrap; /* 文字が折り返さないようにする */
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
 }
 
 #timer {
-    /* 最小48px, 推奨は画面幅の12%, 最大でも180pxに制限 */
-    font-size: clamp(48px, 12vw, 180px);
-    font-weight: 900;
-    letter-spacing: clamp(1px, 0.5vw, 5px); /* 文字間隔も画面サイズに連動 */
-    /* 発光を抑えて輪郭をハッキリさせる */
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 18px rgba(255, 0, 0, 0.5);
+    /* フォントを究極のデジタルフォント「DSEG7」に変更 */
+    font-family: 'DSEG7', monospace;
+    font-size: clamp(48px, 15vw, 220px); /* フォントに合わせてサイズを再調整 */
+    letter-spacing: 0.05em; /* 文字間を調整して見やすく */
+    
+    /* 7セグフォントは影を弱めにしないと隙間が潰れるため調整 */
+    text-shadow: 0 0 6px rgba(255, 0, 0, 0.9), 0 0 12px rgba(255, 0, 0, 0.5);
+    
     animation: blink 1.5s infinite alternate;
-    white-space: nowrap; /* 文字が折り返さないようにする */
+    white-space: nowrap;
 }
 
-/* 点滅アニメーションの定義 */
 @keyframes blink {
     from {
         opacity: 1;
     }
     to {
-        opacity: 0.7;
+        opacity: 0.8;
     }
 }
 
-/* 1/100秒部分のスタイル */
 #centiseconds {
-    font-size: 0.8em; /* 時間・分・秒より少しだけ小さくする */
-    color: #cc0000; /* 少しだけ暗い赤にして差別化 */
+    font-size: 0.8em;
+    color: #dd0000; /* 少しだけ暗い赤 */
+    /* 影をさらに弱くして、メインの数字との差を出す */
+    text-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
 }
 
 
 #message {
-    /* 最小40px, 推奨は画面幅の8%, 最大でも120pxに制限 */
     font-size: clamp(40px, 8vw, 120px);
     font-weight: bold;
-    color: #00ff00; /* 終了メッセージは緑色に */
+    color: #00ff00;
     text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
 }
 
