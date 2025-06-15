@@ -23,24 +23,35 @@ body {
 .container {
     width: 95%;
     margin: 0 auto;
+    /* --- ↓↓↓ ここから変更 ↓↓↓ --- */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* --- ↑↑↑ ここまで変更 ↑↑↑ --- */
 }
 
 #title {
-    font-size: clamp(24px, 5vw, 60px);
+    /* --- ↓↓↓ ここから変更 ↓↓↓ --- */
+    /* 画面幅に応じてフォントサイズを調整し、折り返しを許可 */
+    font-size: clamp(1.5rem, 4.5vw, 3.75rem);
+    white-space: normal; /* 折り返しを許可 */
+    /* --- ↑↑↑ ここまで変更 ↑↑↑ --- */
     margin-bottom: 20px;
     font-weight: normal;
     text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
-    white-space: nowrap;
     font-variant-numeric: tabular-nums;
 }
 
 #timer {
     font-family: 'DSEG7', monospace;
-    font-size: clamp(48px, 15vw, 220px);
+    /* --- ↓↓↓ ここから変更 ↓↓↓ --- */
+    /* 画面幅に応じたフォントサイズを調整してはみ出しを防止 */
+    font-size: clamp(2.5rem, 12vw, 11rem);
+    white-space: nowrap; /* タイマーの数字は改行させない */
+    /* --- ↑↑↑ ここまで変更 ↑↑↑ --- */
     letter-spacing: 0.05em;
     text-shadow: 0 0 6px rgba(255, 0, 0, 0.9), 0 0 12px rgba(255, 0, 0, 0.5);
     animation: blink 1.5s infinite alternate;
-    white-space: nowrap;
 }
 
 @keyframes blink {
